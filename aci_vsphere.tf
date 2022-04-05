@@ -15,7 +15,7 @@ provider "aci" {
 resource "aci_vrf" "VRF_TF" {
   tenant_dn          = aci_tenant.Tenant_TF.id
   name               = var.aci_vrf
-  description        = "VRF created by TF"
+  description        = "VRF created by TF Cloud"
   #bd_enforced_enable = false
   pc_enf_pref            = "unenforced"
 }
