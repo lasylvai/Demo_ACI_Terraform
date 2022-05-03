@@ -13,11 +13,11 @@ provider "aci" {
 
 
 resource "aci_vrf" "VRF_TF" {
-  tenant_dn          = aci_tenant.Tenant_TF.id
-  name               = var.aci_vrf
-  description        = "VRF created by TF Cloud"
+  tenant_dn   = aci_tenant.Tenant_TF.id
+  name        = var.aci_vrf
+  description = "VRF created by TF Cloud"
   #bd_enforced_enable = false
-  pc_enf_pref            = "unenforced"
+  pc_enf_pref = "unenforced"
 }
 
 
@@ -39,7 +39,7 @@ resource "aci_tenant" "Tenant_TF" {
 
 resource "aci_bridge_domain" "BD1_TF" {
   tenant_dn          = aci_tenant.Tenant_TF.id
-  relation_fv_rs_ctx       = aci_vrf.VRF_TF.id
+  relation_fv_rs_ctx = aci_vrf.VRF_TF.id
   name               = var.aci_bd_1
   description        = "BD created by TF"
   #relation_fv_rs_ctx = aci_vrf.VRF_TF.name
@@ -47,7 +47,7 @@ resource "aci_bridge_domain" "BD1_TF" {
 
 resource "aci_bridge_domain" "BD2_TF" {
   tenant_dn          = aci_tenant.Tenant_TF.id
-  relation_fv_rs_ctx       = aci_vrf.VRF_TF.id
+  relation_fv_rs_ctx = aci_vrf.VRF_TF.id
   name               = var.aci_bd_2
   description        = "BD created by TF"
   #relation_fv_rs_ctx = aci_vrf.VRF_TF.name
